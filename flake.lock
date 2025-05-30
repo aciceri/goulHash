@@ -159,6 +159,23 @@
         "type": "github"
       }
     },
+    "forge-std": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745827468,
+        "narHash": "sha256-e3UyvBnCcvKFZ+aiRkQkfiRD8ByanCv0hg4T2W7JGaM=",
+        "owner": "foundry-rs",
+        "repo": "forge-std",
+        "rev": "77041d2ce690e692d6e03cc812b57d1ddaa4d505",
+        "type": "github"
+      },
+      "original": {
+        "owner": "foundry-rs",
+        "ref": "v1.9.7",
+        "repo": "forge-std",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -368,6 +385,7 @@
         "aiken": "aiken",
         "flake-parts": "flake-parts_2",
         "flake-root": "flake-root_2",
+        "forge-std": "forge-std",
         "git-hooks": "git-hooks",
         "nixpkgs": "nixpkgs_4",
         "treefmt-nix": "treefmt-nix_2"

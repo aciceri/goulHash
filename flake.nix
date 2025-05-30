@@ -13,6 +13,10 @@
     agenix-shell.url = "github:aciceri/agenix-shell";
     flake-root.url = "github:srid/flake-root";
     aiken.url = "github:aiken-lang/aiken";
+    forge-std = {
+      flake = false;
+      url = "github:foundry-rs/forge-std/v1.9.7";
+    };
   };
 
   outputs = inputs:
@@ -62,14 +66,23 @@
           packages = with pkgs; [
             inputs'.aiken.packages.aiken
             bun
+            foundry
             age
           ];
 
           inputsFrom = [ config.flake-root.devShell ];
 
           shellHook = ''
-            ${config.pre-commit.installationScript}
             source ${lib.getExe config.agenix-shell.installationScript}
+
+            # forge will use this directory to download the solc compilers
+            mkdir -p $HOME/.svm
+
+            # forge needs forge-std to work
+            mkdir -p $FLAKE_ROOT/ethereum/lib/
+            ln -sf ${inputs.forge-std.outPath} $FLAKE_ROOT/ethereum/lib/forge-std
+
+            ${config.pre-commit.installationScript}
           '';
         };
       };
