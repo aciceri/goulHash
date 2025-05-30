@@ -17,6 +17,10 @@
       flake = false;
       url = "github:foundry-rs/forge-std/v1.9.7";
     };
+    cross-chain-swaps = {
+      flake = false;
+      url = "github:1inch/cross-chain-swap";
+    };
   };
 
   outputs = inputs:
@@ -58,6 +62,11 @@
               files = "\\.ak$";
               entry = "aiken fmt";
             };
+            solidity = {
+              enable = true;
+              files = "\\.sol$";
+              entry = "forge fmt";
+            };
           };
         };
 
@@ -81,6 +90,7 @@
             # forge needs forge-std to work
             mkdir -p $FLAKE_ROOT/ethereum/lib/
             ln -sf ${inputs.forge-std.outPath} $FLAKE_ROOT/ethereum/lib/forge-std
+            ln -sf ${inputs.cross-chain-swaps.outPath} $FLAKE_ROOT/ethereum/lib/cross-chain-swaps
 
             ${config.pre-commit.installationScript}
           '';
