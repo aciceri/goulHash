@@ -55,7 +55,6 @@ async function withdrawFundTx(vestingUtxo) {
 
 async function main() {
   const txHashFromDesposit =
-    //This is the hash that we generated in the locking file when we submitted the transaction.
     "a37eea12333a72217776ea2c898a264c083c696fafe7de7ae3c7e186483a557a";
 
   const utxo = await getUtxoByTxHash(txHashFromDesposit);

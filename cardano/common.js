@@ -36,7 +36,7 @@ export function getTxBuilder() {
   return new MeshTxBuilder({
     fetcher: blockchainProvider,
     submitter: blockchainProvider,
-    verbose: true, // <-- you can remove this if you dont want to see logs
+    verbose: true,
   });
 }
 
