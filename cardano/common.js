@@ -40,10 +40,13 @@ export function getTxBuilder() {
   });
 }
 
-const blueprint = JSON.parse(fs.readFileSync("./fusion-plus/plutus.json"));
+const blueprint = JSON.parse(fs.readFileSync("./escrow/plutus.json"));
 export const scriptCbor = applyParamsToScript(
   blueprint.validators[0].compiledCode,
-  [],
+  [
+    "290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563",
+    3000000000000,
+  ],
 );
 export const scriptAddr = serializePlutusScript(
   { code: scriptCbor, version: "V3" },
