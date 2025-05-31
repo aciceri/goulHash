@@ -14,7 +14,7 @@ contract DeployEscrow is Script {
 
         bytes32 hash = 0x290DECD9548B62A8D60345A988386FC84BA6BC95484008F6362F93160EF3E563; // = hash(0)
         uint256 locked_until = block.number + 1000;
-        address recipient = address(0); // TODO change me
+        address recipient = msg.sender;
 
         escrow = new EscrowSrc{value: 10}(hash, locked_until, recipient);
 
