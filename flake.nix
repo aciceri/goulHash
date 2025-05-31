@@ -79,6 +79,18 @@
           };
         };
 
+        packages = {
+          ethereum = pkgs.writeShellScriptBin "ethereum.sh" ''
+            pushd "$FLAKE_ROOT/ethereum"
+            forge script \
+              --rpc-url "https://eth-sepolia.g.alchemy.com/v2/dNcJrI_T39LnG_oMRBZ2i" \
+              --private-key "$ETHEREUM_WALLET_PRIVATE_KEY" \
+              --broadcast \
+              -vvv \
+              script/Deploy.sol:DeployEscrow
+            popd
+          '';
+        };
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
