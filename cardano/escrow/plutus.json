@@ -1,0 +1,96 @@
+{
+  "preamble": {
+    "title": "adcazzum/escrow",
+    "description": "Aiken contracts for project 'adcazzum/escrow'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.17+35e41a1"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "escrow.escrow.spend",
+      "datum": {
+        "title": "datum_opt",
+        "schema": {
+          "$ref": "#/definitions/escrow~1EscrowDatum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "parameters": [
+        {
+          "title": "hash",
+          "schema": {
+            "$ref": "#/definitions/ByteArray"
+          }
+        },
+        {
+          "title": "lock_until",
+          "schema": {
+            "$ref": "#/definitions/Int"
+          }
+        }
+      ],
+      "compiledCode": "59011b0101002229800aba2aba1aba0aab9eaab9dab9a9bae0039bad0024888888896600264653001300900198049805000cdc3a40049112cc004c004c024dd500144c8cc896600266e1d2000300c37540031598009919192cc004c01cc03cdd5000c566002600e601e6ea8c048c04c00a266e20dd6980918081baa00100c899b89375a602460206ea800403100e4528201c30110013300f30100013300f9800980298069baa30103011001a6103d87a8000a60103d8798000403097ae0300d3754601e6020601a6ea8c03cc040c040c040c040c040c040c040c034dd5180780444cdc79bc7375c601e601a6ea8c03cc034dd5000805452820168b2016300d001300d300e001300a3754005164020300900130053754013149a26cac8019",
+      "hash": "21eeccf9a75b134901ae24abeae0ca665abde5eba77cb54350f273f5"
+    },
+    {
+      "title": "escrow.escrow.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "parameters": [
+        {
+          "title": "hash",
+          "schema": {
+            "$ref": "#/definitions/ByteArray"
+          }
+        },
+        {
+          "title": "lock_until",
+          "schema": {
+            "$ref": "#/definitions/Int"
+          }
+        }
+      ],
+      "compiledCode": "59011b0101002229800aba2aba1aba0aab9eaab9dab9a9bae0039bad0024888888896600264653001300900198049805000cdc3a40049112cc004c004c024dd500144c8cc896600266e1d2000300c37540031598009919192cc004c01cc03cdd5000c566002600e601e6ea8c048c04c00a266e20dd6980918081baa00100c899b89375a602460206ea800403100e4528201c30110013300f30100013300f9800980298069baa30103011001a6103d87a8000a60103d8798000403097ae0300d3754601e6020601a6ea8c03cc040c040c040c040c040c040c040c034dd5180780444cdc79bc7375c601e601a6ea8c03cc034dd5000805452820168b2016300d001300d300e001300a3754005164020300900130053754013149a26cac8019",
+      "hash": "21eeccf9a75b134901ae24abeae0ca665abde5eba77cb54350f273f5"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Data": {
+      "title": "Data",
+      "description": "Any Plutus data."
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "escrow/EscrowDatum": {
+      "title": "EscrowDatum",
+      "anyOf": [
+        {
+          "title": "EscrowDatum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "secret",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
