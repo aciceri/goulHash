@@ -395,6 +395,22 @@
         "type": "github"
       }
     },
+    "openzeppelin-contracts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748532214,
+        "narHash": "sha256-VR5LQWfYwzC+84t7CLt/2eNRxvCigQJcWLYQyNGwDIs=",
+        "owner": "OpenZeppelin",
+        "repo": "openzeppelin-contracts",
+        "rev": "a6ae04acf8e38ed49a70fdce5389df2752e3ecc4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OpenZeppelin",
+        "repo": "openzeppelin-contracts",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix-shell": "agenix-shell",
@@ -405,6 +421,8 @@
         "forge-std": "forge-std",
         "git-hooks": "git-hooks",
         "nixpkgs": "nixpkgs_4",
+        "openzeppelin-contracts": "openzeppelin-contracts",
+        "solidity-utils": "solidity-utils",
         "treefmt-nix": "treefmt-nix_2"
       }
     },
@@ -423,6 +441,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "solidity-utils": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747907454,
+        "narHash": "sha256-CdtS/rZ2XssdC991ByAevb03Vokb4MwJPsr2Am+1geM=",
+        "owner": "1inch",
+        "repo": "solidity-utils",
+        "rev": "948af77af88f103876f8895c0806a08167f97543",
+        "type": "github"
+      },
+      "original": {
+        "owner": "1inch",
+        "repo": "solidity-utils",
         "type": "github"
       }
     },

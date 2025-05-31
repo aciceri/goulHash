@@ -21,6 +21,14 @@
       flake = false;
       url = "github:1inch/cross-chain-swap";
     };
+    solidity-utils = {
+      flake = false;
+      url = "github:1inch/solidity-utils";
+    };
+    openzeppelin-contracts = {
+      flake = false;
+      url = "github:OpenZeppelin/openzeppelin-contracts";
+    };
   };
 
   outputs = inputs:
@@ -88,10 +96,13 @@
             mkdir -p $HOME/.svm
 
             # forge needs forge-std to work
+            rm -rf $FLAKE_ROOT/ethereum/lib
             mkdir -p $FLAKE_ROOT/ethereum/lib/
             ln -sf ${inputs.forge-std.outPath} $FLAKE_ROOT/ethereum/lib/forge-std
             ln -sf ${inputs.cross-chain-swaps.outPath} $FLAKE_ROOT/ethereum/lib/cross-chain-swaps
-
+            ln -sf ${inputs.solidity-utils.outPath} $FLAKE_ROOT/ethereum/lib/solidity-utils
+            ln -sf ${inputs.openzeppelin-contracts.outPath} $FLAKE_ROOT/ethereum/lib/openzeppelin-contracts
+            ln -sf ${inputs.openzeppelin-contracts.outPath} $FLAKE_ROOT/ethereum/lib/@openzeppelin
             ${config.pre-commit.installationScript}
           '';
         };
