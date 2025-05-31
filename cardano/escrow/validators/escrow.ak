@@ -27,7 +27,7 @@ validator escrow(hash: ByteArray, lock_until: Int) {
   }
 }
 
-test hello_world_example() {
+test smoke() {
   let placeholder_utxo = OutputReference { transaction_id: "", output_index: 0 }
   let tx =
     mocktail_tx()
