@@ -25,14 +25,6 @@ async function withdrawFundTx(vestingUtxo) {
     beneficiary_wallet.addresses.baseAddressBech32,
   );
 
-  // const datum = deserializeDatum(vestingUtxo.output.plutusData);
-
-  // const invalidBefore =
-  //   unixTimeToEnclosingSlot(
-  //     Math.min(datum.fields[0].int, Date.now() - 19000),
-  //     SLOT_CONFIG_NETWORK.preview
-  //   ) + 1;
-
   const txBuilder = getTxBuilder();
   await txBuilder
     .spendingPlutusScript("V3")
@@ -54,7 +46,6 @@ async function withdrawFundTx(vestingUtxo) {
       collateralOutput.amount,
       collateralOutput.address,
     )
-    // .invalidBefore(invalidBefore)
     .requiredSignerHash(beneficiaryPubKeyHash)
     .changeAddress(beneficiaryAddress)
     .selectUtxosFrom(utxos)
