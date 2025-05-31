@@ -45,6 +45,7 @@
       agenix-shell = {
         secrets = {
           BLOCKFROST_API_KEY.file = ./secrets/blockfrost-api-key.age;
+          ETHEREUM_WALLET_PRIVATE_KEY.file = ./secrets/ethereum-wallet-private-key.age; # 0xf7c8e5bFc8DbF27b88D14EF316e7A6418B5d9902
         };
       };
 

@@ -3,4 +3,5 @@ let
 in
 {
   "blockfrost-api-key.age".publicKeys = [ aciceri ];
+  "ethereum-wallet-private-key.age".publicKeys = [ aciceri ];
 }
